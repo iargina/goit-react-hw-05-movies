@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+}
+.nav {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  color: #fff;
+  background: linear-gradient(45deg, #6126ad, #c6a6d8, #e2bcda);
+  background-size: 400% 400%;
+  animation: bgLinear 25s ease infinite;
+}
+@keyframes bgLinear {
+  0 {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.link {
+  font-size: 30px;
+  color: black;
+  text-decoration: none;
+}
