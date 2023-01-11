@@ -42,7 +42,7 @@ export const MovieDetails = () => {
         <div className={css.filmWrap}>
           <img
             src={posterPath + movie.poster_path}
-            alt=""
+            alt={movie.original_title + ' poster'}
             className={css.filmImg}
           />
           <div className={css.filmInfo}>

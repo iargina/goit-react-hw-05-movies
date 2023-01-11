@@ -1,0 +1,12 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 550px;
+}
+.link {
+  text-decoration: none;
+}
+.text {
+  text-decoration: none;
+}
