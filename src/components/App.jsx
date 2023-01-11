@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
-import { Home } from './Home/Home';
-import { Movies } from './Movies/Movies';
-import { MovieDetails } from './MovieDetails/MovieDetails';
+import { Home } from '../pages/Home/Home';
+import { Movies } from '../pages/Movies/Movies';
+import { MovieDetails } from '../pages/MovieDetails/MovieDetails';
 import { lazy } from 'react';
 import css from './App.module.css';
 
