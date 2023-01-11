@@ -12,12 +12,13 @@ export const Home = () => {
   const [error, setError] = useState(null);
   useEffect(() => {
     setLoading(true);
-    gettingPopularFilm().then(result => {
-      setFilms([...result])
-        .catch(error => setError(error.message))
-        .finally(() => setLoading(false));
-      return;
-    });
+    gettingPopularFilm()
+      .then(result => {
+        setFilms([...result]);
+        return;
+      })
+      .catch(error => setError(error.message))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
