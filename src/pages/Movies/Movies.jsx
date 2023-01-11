@@ -11,7 +11,6 @@ export const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const query = searchParams.get('q') ?? '';
-
   useEffect(() => {
     if (!query) return;
     gettingFilmsByName(query)
@@ -47,7 +46,7 @@ export const Movies = () => {
       {filmLibrary.length > 0 ? (
         <div>
           <ul className={css.list}>
-            <FilmGallery filmArr={filmLibrary} />
+            <FilmGallery filmArr={filmLibrary} link={''} />
           </ul>
         </div>
       ) : (

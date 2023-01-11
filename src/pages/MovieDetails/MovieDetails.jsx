@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { gettingFilmDetails } from 'services/filmDetails';
 import css from './MovieDetails.module.css';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 
 export const MovieDetails = () => {
@@ -33,12 +33,23 @@ export const MovieDetails = () => {
         })
     );
   }, [movieId]);
+
   const options = { style: 'currency', currency: 'USD' };
   const numberFormat = new Intl.NumberFormat('ru-RU', options);
   const posterPath = 'https://image.tmdb.org/t/p/w500';
+  const location = useLocation();
+  const navigation = useNavigate();
+
+  const onBackClick = () => {
+    navigation(location.state?.from ?? '/');
+  };
+
   return (
     movie && (
-      <>
+      <div className={css.movieDetail}>
+        <button type="button" className={css.button} onClick={onBackClick}>
+          Go back
+        </button>
         <div className={css.filmWrap}>
           <img
             src={posterPath + movie.poster_path}
@@ -83,7 +94,7 @@ export const MovieDetails = () => {
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
-      </>
+      </div>
     )
   );
 };

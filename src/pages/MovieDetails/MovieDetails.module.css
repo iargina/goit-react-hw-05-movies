@@ -1,12 +1,22 @@
+.movieDetail {
+  padding: 30px 50px;
+}
+.button {
+  padding: 10px 50px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #6126ad, #c6a6d8, #e2bcda);
+  font-weight: 600;
+}
 .filmWrap {
   display: flex;
   width: 100%;
   justify-content: center;
   gap: 50px;
-  padding: 35px;
+  padding: 10px 35px;
 }
 .filmImg {
   min-width: 20%;
+  object-fit: contain;
 }
 .filmInfo {
   padding: 30px;

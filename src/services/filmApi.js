@@ -46,6 +46,5 @@ export const gettingFilmsByName = async query => {
       original_title,
     })
   );
-  console.log(filmArr);
   return filmArr;
 };

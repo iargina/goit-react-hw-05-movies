@@ -7,6 +7,7 @@ export const Home = () => {
   const [filmLibrary, setFilms] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     setLoading(true);
     gettingPopularFilm()
@@ -21,7 +22,7 @@ export const Home = () => {
   return (
     <div className={css.container}>
       <ul className={css.list}>
-        <FilmGallery filmArr={filmLibrary} />
+        <FilmGallery filmArr={filmLibrary} link={'movies/'} />
         {error && <p>{error}</p>}
         {loading && <h4> Loading</h4>}
       </ul>
