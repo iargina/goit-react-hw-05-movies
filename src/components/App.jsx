@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, NavLink } from 'react-router-dom';
 import { Home } from '../pages/Home/Home';
 import { Movies } from '../pages/Movies/Movies';
 import { MovieDetails } from '../pages/MovieDetails/MovieDetails';
@@ -12,12 +12,12 @@ export const App = () => {
   return (
     <div className={css.container}>
       <nav className={css.nav}>
-        <Link className={css.link} to="/">
+        <NavLink className={css.link} to="/">
           Home
-        </Link>
-        <Link className={css.link} to="/movies">
+        </NavLink>
+        <NavLink className={css.link} to="/movies">
           Movies
-        </Link>
+        </NavLink>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
