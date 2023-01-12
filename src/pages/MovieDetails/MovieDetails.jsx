@@ -18,9 +18,10 @@ export const MovieDetails = () => {
   const posterPath = 'https://image.tmdb.org/t/p/w500';
   const location = useLocation();
   const navigation = useNavigate();
+  const backLink = location.state?.from ?? '/';
 
   const onBackClick = () => {
-    navigation(location.state?.from ?? '/');
+    navigation(backLink);
   };
   if (!movie) return null;
 
@@ -72,10 +73,10 @@ export const MovieDetails = () => {
               <b>Description: </b>
               {overview}
             </p>
-            <Link to="cast" className={css.link}>
+            <Link to="cast" state={{ from: backLink }} className={css.link}>
               Cast
             </Link>
-            <Link to="reviews" className={css.link}>
+            <Link to="reviews" state={{ from: backLink }} className={css.link}>
               Reviews
             </Link>
           </div>
