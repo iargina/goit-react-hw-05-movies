@@ -10,28 +10,7 @@ export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    gettingFilmDetails(movieId).then(
-      ({
-        poster_path,
-        original_title,
-        tagline,
-        budget,
-        genres,
-        production_companies,
-        release_date,
-        overview,
-      }) =>
-        setMovie({
-          poster_path,
-          original_title,
-          tagline,
-          budget,
-          genres,
-          production_companies,
-          release_date,
-          overview,
-        })
-    );
+    gettingFilmDetails(movieId).then(setMovie);
   }, [movieId]);
 
   const options = { style: 'currency', currency: 'USD' };
@@ -43,7 +22,17 @@ export const MovieDetails = () => {
   const onBackClick = () => {
     navigation(location.state?.from ?? '/');
   };
+  if (!movie) return null;
 
+  const {
+    poster_path,
+    original_title,
+    tagline,
+    budget,
+    production_companies,
+    release_date,
+    overview,
+  } = movie;
   return (
     movie && (
       <div className={css.movieDetail}>
@@ -52,18 +41,18 @@ export const MovieDetails = () => {
         </button>
         <div className={css.filmWrap}>
           <img
-            src={posterPath + movie.poster_path}
-            alt={movie.original_title + ' poster'}
+            src={posterPath + poster_path}
+            alt={original_title + ' poster'}
             className={css.filmImg}
           />
           <div className={css.filmInfo}>
-            <h3 className={css.title}>{movie.original_title}</h3>
+            <h3 className={css.title}>{original_title}</h3>
             <p className={css.text}>
-              <b>Tagline: </b>"{movie.tagline}"
+              <b>Tagline: </b>"{tagline}"
             </p>
             <p className={css.text}>
               <b>Budget: </b>
-              {numberFormat.format(movie.budget)}
+              {numberFormat.format(budget)}
             </p>
             <p className={css.text}>
               <b>Genres: </b>
@@ -71,17 +60,17 @@ export const MovieDetails = () => {
             </p>
             <p className={css.text}>
               <b>Production companies: </b>
-              {movie.production_companies
+              {production_companies
                 .map(production_companie => production_companie.name)
                 .join(', ')}
             </p>
             <p className={css.text}>
               <b>Release date : </b>
-              {movie.release_date}
+              {release_date}
             </p>
             <p className={css.text}>
               <b>Description: </b>
-              {movie.overview}
+              {overview}
             </p>
             <Link to="cast" className={css.link}>
               Cast

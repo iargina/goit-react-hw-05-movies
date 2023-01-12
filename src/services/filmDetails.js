@@ -12,8 +12,26 @@ export const gettingFilmDetails = async movieId => {
   });
 
   const response = await filmSearch(`/${movieId}`);
-  const film = response.data;
-  return film;
+  const {
+    poster_path,
+    original_title,
+    tagline,
+    budget,
+    genres,
+    production_companies,
+    release_date,
+    overview,
+  } = response.data;
+  return {
+    poster_path,
+    original_title,
+    tagline,
+    budget,
+    genres,
+    production_companies,
+    release_date,
+    overview,
+  };
 };
 
 export const gettingFilmCast = async movieId => {

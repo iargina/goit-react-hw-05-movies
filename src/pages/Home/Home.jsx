@@ -22,7 +22,7 @@ export const Home = () => {
   return (
     <div className={css.container}>
       <ul className={css.list}>
-        <FilmGallery filmArr={filmLibrary} link={'movies/'} />
+        <FilmGallery filmArr={filmLibrary}/>
         {error && <p>{error}</p>}
         {loading && <h4> Loading</h4>}
       </ul>

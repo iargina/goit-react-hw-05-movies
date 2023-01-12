@@ -46,7 +46,7 @@ export const Movies = () => {
       {filmLibrary.length > 0 ? (
         <div>
           <ul className={css.list}>
-            <FilmGallery filmArr={filmLibrary} link={''} />
+            <FilmGallery filmArr={filmLibrary} />
           </ul>
         </div>
       ) : (
